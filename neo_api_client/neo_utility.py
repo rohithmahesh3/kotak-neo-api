@@ -15,19 +15,20 @@ class NeoUtility:
         Project configuration (or) Params to be passed here
     """
 
-    def __init__(self, consumer_key=None, consumer_secret=None, host=None, access_token=None, neo_fin_key=None):
+    def __init__(self, consumer_key=None, consumer_secret=None, host=None, access_token=None, neo_fin_key=None, 
+                 view_token=None, sid=None, userId=None, edit_token=None, edit_sid=None, edit_rid=None, serverId=None):
         self.consumer_key = consumer_key
         self.consumer_secret = consumer_secret
         self.host = host
         self.base64_token = self.convert_base64()
         self.bearer_token = access_token
-        self.view_token = None
-        self.sid = None
-        self.userId = None
-        self.edit_token = None
-        self.edit_sid = None
-        self.edit_rid = None
-        self.serverId = None
+        self.view_token = view_token
+        self.sid = sid
+        self.userId = userId
+        self.edit_token = edit_token
+        self.edit_sid = edit_sid
+        self.edit_rid = edit_rid
+        self.serverId = serverId
         self.login_params = None
         self.neo_fin_key = neo_fin_key
 

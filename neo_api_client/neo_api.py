@@ -39,7 +39,8 @@ class NeoAPI:
     """
 
     def __init__(self, environment="uat", access_token=None, consumer_key=None, consumer_secret=None,
-                 on_message=None, on_error=None, on_close=None, on_open=None, neo_fin_key=None):
+                 on_message=None, on_error=None, on_close=None, on_open=None, neo_fin_key=None,
+                 view_token=None, sid=None, userId=None, edit_token=None, edit_sid=None, edit_rid=None, serverId=None):
         """
     Initializes the class and sets up the necessary configurations for the API client.
 
@@ -73,7 +74,8 @@ class NeoAPI:
             except ApiException as ex:
                 error = ex
         elif access_token:
-            self.configuration = neo_api_client.NeoUtility(access_token=access_token, host=environment)
+            self.configuration = neo_api_client.NeoUtility(access_token=access_token, host=environment, view_token=view_token,
+                                                           sid=sid, userId=userId, edit_token=edit_token, edit_sid=edit_sid, edit_rid=edit_rid, serverId=serverId)
             self.api_client = ApiClient(self.configuration)
 
         self.NeoWebSocket = None
